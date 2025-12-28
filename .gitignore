@@ -1,8 +1,0 @@
-_vendor
-node_modules
-public
-resources
-.DS_store
-# Local Netlify folder
-.netlify
-jsconfig.json
