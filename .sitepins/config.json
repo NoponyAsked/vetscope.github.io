@@ -1,0 +1,17 @@
+{
+  "media": {
+    "root": "static/images",
+    "public": "static"
+  },
+  "content": {
+    "root": "content"
+  },
+  "code": {
+    "root": "layouts"
+  },
+  "themeConfig": [
+    "config.toml"
+  ],
+  "arrangement": [],
+  "showCommitModal": false
+}
