@@ -1,8 +1,8 @@
----
-featured_image: "/images/7.jpg"
++++
+featured_image: /images/7.jpg
 title: 7th
-draft: false
----
+draft: true
++++
 ​
 
 | Тип            | Область         | Вид | Пол | Порода | Возраст | Проблема                        |
