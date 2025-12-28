@@ -1,5 +1,5 @@
 ---
-featured_image: media/static/5.jpg
+featured_image: /images/5.jpg
 title: 5th
 draft: false
 ---
