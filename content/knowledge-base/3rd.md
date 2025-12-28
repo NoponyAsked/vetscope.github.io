@@ -1,7 +1,7 @@
 ---
 title: 3rd
 featured_image: media/static/images/3.jpg
-draft: true
+draft: false
 ---
 title = "3rd"
 date = "2025-12-28"
