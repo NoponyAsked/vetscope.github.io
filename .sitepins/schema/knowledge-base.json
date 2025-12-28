@@ -1,0 +1,41 @@
+{
+  "file": "content/knowledge-base/1.md",
+  "name": "knowledge-base",
+  "fileType": "md",
+  "fmType": "toml",
+  "template": [
+    {
+      "name": "title",
+      "label": "Post№",
+      "type": "string",
+      "value": "",
+      "description": "название для поста",
+      "isRequired": true,
+      "defaultValue": ""
+    },
+    {
+      "name": "date",
+      "label": "Дата",
+      "type": "Date",
+      "value": "2025-12-28",
+      "defaultValue": "",
+      "alwaysUseCurrentDate": true
+    },
+    {
+      "name": "draft",
+      "label": "Черновик",
+      "type": "boolean",
+      "value": true,
+      "description": "Публиковать ли",
+      "defaultValue": "true"
+    },
+    {
+      "name": "featured_image",
+      "label": "Картинка",
+      "type": "media",
+      "value": "",
+      "isRequired": true,
+      "defaultValue": ""
+    }
+  ]
+}
