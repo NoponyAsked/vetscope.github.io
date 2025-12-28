@@ -1,6 +1,6 @@
 ---
 title: 6th
-featured_image: media/static/images/6.jpg
+featured_image: /images/6.jpg
 draft: false
 ---
 ​
