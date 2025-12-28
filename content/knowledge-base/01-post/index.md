@@ -1,7 +1,7 @@
 +++
 title = "1st"
 date = "2025-12-25T17:41:11+03:00"
-draft = true
+draft = false
 featured_image = "cover.jpg"
 +++
 ​
