@@ -7,12 +7,13 @@ This template is the same as the default and is here to demonstrate that if you 
     background-color: #e6e6e5;
     }
 </style>
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/vetscope/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/vetscope/pagefind/pagefind-ui.js"></script>
 <div id="search"></div>
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
-      new PagefindUI({ element: "#search", showSubResults: true });
+      new PagefindUI({ element: "#search", showSubResults: true, bundlePath: "/vetscope/pagefind/" });
+
   });
 </script>
 <article class="pa3 pa4-ns nested-copy-line-height">
