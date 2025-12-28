@@ -1,0 +1,31 @@
+{{ $idx := int .Page.Title}}
+{{ with $file := .Get 0 }}
+{{ with resources.Get $file }}
+{{ with . | transform.Unmarshal }}
+<div class="pa4">
+  <div class="overflow-auto">
+    <table class="f6 w-100 mw8 center" cellspacing="0">
+      <thead>
+        <tr>
+          {{ range index . 0 }}
+          <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">{{ . }}</th>
+          {{ end }}
+        </tr>
+      </thead>
+      <tbody class="lh-copy">
+        <tr>
+          {{ range index . $idx }}
+          <td class="pv3 pr3 bb b--black-20">{{ . }}</td>
+          {{ end }}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{{ end }}
+{{ else }}
+{{ errorf "The %q shortcode was unable to find %s. See %s" $.Name $file $.Position }}
+{{ end }}
+{{ else }}
+{{ errorf "The %q shortcode requires one positional argument, the path to the CSV file relative to the assets directory. See %s" .Name .Position }}
+{{ end }}
