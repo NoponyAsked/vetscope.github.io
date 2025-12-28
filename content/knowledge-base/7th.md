@@ -1,7 +1,9 @@
 +++
-featured_image: /images/7.jpg
-title: 7th
-draft: true
+featured_image = "/images/7.jpg"
+title = 7th
+draft = true
+date = "2025-12-28"
+
 +++
 ​
 
