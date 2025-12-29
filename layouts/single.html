@@ -27,8 +27,6 @@
     {{ end }}
     {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
     {{ if not .Date.IsZero }}
-    {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
-    <img src="{{$featured_image}}" alt="">
     <time class="f6 mv4 dib tracked" {{ fmt.Printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safe.HTMLAttr }}>
       {{- .Date | time.Format (compare.Default "January 2, 2006" .Site.Params.date_format) -}}
     </time>
@@ -51,7 +49,9 @@
     {{ end }}
   </header>
   <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | compare.Default "serif"}} f4 nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }} {{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} {{ if $needs_aside }}w-two-thirds-l{{ else }}w-100-l{{ end }}" data-pagefind-body>
-    {{- .Content -}}
+    {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
+    <img src="{{$featured_image}}" alt="">
+    {{ partial "list-to-carousel.html" .Content }}
     {{- partials.Include "tags.html" . -}}
     <div class="mt6 instapaper_ignoref">
       {{ if .Site.Config.Services.Disqus.Shortname }}
@@ -69,4 +69,22 @@
   </aside>
   {{- end -}}
 </article>
+{{ $style := resources.Get "css/auto-carousel.css" | css.Sass | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ with resources.Get "js/auto-carousel.js" }}
+{{$opts := dict
+"minify" (not hugo.IsDevelopment)
+"sourceMap" (cond hugo.IsDevelopment "external" "")
+"targetPath" "js/auto-carousel.js"
+}}
+{{ with . | js.Build $opts }}
+{{ if hugo.IsDevelopment }}
+<script src="{{ .RelPermalink }}"></script>
+{{ else }}
+{{ with . | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
 {{ end }}

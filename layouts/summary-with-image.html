@@ -17,13 +17,16 @@
           </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links" style="width: min-content;">
-          {{ .Summary }}
+			{{- $imageListPattern := `<ul>\s*(<li>\s*<img[^>]*>\s*</li>\s*)+</ul>` -}}
+			{{ $clean := replaceRE $imageListPattern "" .Summary }}
+			{{ $clean | safeHTML }}
+            <!-- {{ .Summary }} -->
+          </div>
+          {{ with .Params.author | compare.Default .Site.Params.author }}
+          <p class="f6 lh-copy mv0">By {{ . }}</p>
+          {{- end -}}
+          <a href="{{.RelPermalink}}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">{{ $.Param "read_more_copy" | compare.Default (lang.Translate "readMore") }}</a>
         </div>
-        {{ with .Params.author | compare.Default .Site.Params.author }}
-        <p class="f6 lh-copy mv0">By {{ . }}</p>
-        {{- end -}}
-        <a href="{{.RelPermalink}}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">{{ $.Param "read_more_copy" | compare.Default (lang.Translate "readMore") }}</a>
       </div>
     </div>
-  </div>
-</article>
+  </article>
