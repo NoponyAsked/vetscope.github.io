@@ -22,7 +22,7 @@ This template is the same as the default and is here to demonstrate that if you 
   </section>
   <aside class="flex-ns mt5 flex-wrap flex-column justify-around">
     {{ range .Paginator.Pages }}
-    <div class="w-100 w-30-l mb4 relative bg-white">
+    <div class="w-100 w-30-l mb4 relative">
       {{ .Render "summary-with-image" }}
     </div>
     {{ end }}
