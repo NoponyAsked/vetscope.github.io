@@ -1,4 +1,4 @@
-title = "ВетСкоуп"
+title = "ВЕТ КЛАУД"
 baseURL = "https://noponyasked.github.io/vetscope/"
 languageCode = "ru"
 theme = "ananke"
@@ -38,3 +38,8 @@ identifier = "about"
 name = "О компании"
 url = "/about"
 weight = 3
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
